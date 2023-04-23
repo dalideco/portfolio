@@ -1,0 +1,15 @@
+.container {
+  @apply py-[10px];
+  @apply flex flex-col justify-between cursor-pointer;
+}
+
+.container > div {
+  background: #1d1d1d;
+  border-radius: 5px;
+  width: 27px;
+  height: 2px;
+}
+
+.container > div.first {
+  @apply mb-[4px];
+}
