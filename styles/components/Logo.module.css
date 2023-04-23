@@ -1,0 +1,6 @@
+.container {
+  @apply bg-black text-white;
+  @apply py-1 pl-2 pr-6;
+  @apply text-lg;
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
