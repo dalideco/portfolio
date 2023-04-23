@@ -1,3 +1,19 @@
 .container {
-  @apply px-6 py-2 flex;
+  @apply px-6 py-2;
+  @apply flex items-center justify-between;
+  @apply fixed top-0 left-0;
+  @apply w-full;
+}
+
+.links {
+  @apply flex mr-14;
+}
+
+.links > a {
+  @apply px-4 py-2;
+  @apply text-gray font-medium text-[1rem];
+}
+
+.links > a:hover {
+  @apply text-black
 }
