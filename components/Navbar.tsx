@@ -3,7 +3,7 @@ import { useMouse } from "@/contexts/Mouse.context";
 import useMouseAnimation from "@/hooks/useMouseAnimation";
 import styles from "@/styles/components/Navbar.module.css";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 
@@ -16,14 +16,35 @@ function RouteLink({ route }: { route: string }) {
   return (
     <Link
       ref={ref}
-      key={route}
       href={`/#${route}`}
+      id={`${route}-button`}
       onMouseOver={triggerHover}
       onMouseOut={stopHover}
     >
       {route.charAt(0).toUpperCase() + route.substring(1)}
     </Link>
   );
+}
+
+function ButtonHighlight() {
+  const { currentRoute } = useHashRouter();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const current = ref.current;
+    if (!current) return;
+
+    const route = currentRoute || "about";
+
+    const button = document.getElementById(`${route}-button`);
+    if (!button) return;
+    const width = button.offsetWidth;
+    const position = button.offsetLeft;
+
+    current.style.width = width + "px";
+    current.style.transform = `translateX(${position}px)`;
+  }, [currentRoute]);
+  return <div ref={ref} className={styles.highlight}></div>;
 }
 
 export default function Navbar() {
@@ -40,7 +61,7 @@ export default function Navbar() {
           {ROUTES.map((route) => (
             <RouteLink key={route} route={route}></RouteLink>
           ))}
-          <div className={styles.highlight}></div>
+          <ButtonHighlight />
         </div>
 
         {/* menu button */}
