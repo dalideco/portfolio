@@ -19,15 +19,15 @@ export default function useMouseAnimation(ref: React.RefObject<HTMLElement>) {
       current.style.transform = transform;
     };
 
-    const onMouseLeave = () => {
+    const onMouseOut = () => {
       current.style.transform = "";
     };
 
     current.onmousemove = onMouseMove;
-    current.onmouseleave = onMouseLeave;
+    current.onmouseout = onMouseOut;
     return () => {
       current.onmousemove = null;
-      current.onmouseleave = null;
+      current.onmouseout = null;
     };
   }, [ref]);
 }
