@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 export default function useMouseAnimation(ref: React.RefObject<HTMLElement>) {
   useEffect(() => {
-    console.log("running");
     const current = ref.current;
     if (!current) return;
 
@@ -10,10 +9,14 @@ export default function useMouseAnimation(ref: React.RefObject<HTMLElement>) {
       //@ts-ignore
       const el: HTMLElement = e.target;
 
-      const elCenterX = el.offsetLeft + el.offsetWidth / 2;
-      const elCenterY = el.offsetTop + el.offsetHeight / 2;
+      const coordinates = el.getBoundingClientRect();
+      const elCenterX = coordinates.x + el.offsetWidth / 2;
+      const elCenterY = coordinates.y + el.offsetHeight / 2;
+      
       const mouseX = e.clientX - elCenterX;
       const mouseY = e.clientY - elCenterY;
+
+      // console.log(mouseX,mouseY)
 
       const transform = `translate(${mouseX * 0.3}%, ${mouseY * 0.3}%)`;
       current.style.transform = transform;

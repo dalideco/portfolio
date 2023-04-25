@@ -40,6 +40,7 @@ export default function Navbar() {
           {ROUTES.map((route) => (
             <RouteLink key={route} route={route}></RouteLink>
           ))}
+          <div className={styles.highlight}></div>
         </div>
 
         {/* menu button */}
