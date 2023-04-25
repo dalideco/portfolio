@@ -3,16 +3,25 @@ import { useMouse } from "@/contexts/Mouse.context";
 import useMouseAnimation from "@/hooks/useMouseAnimation";
 import styles from "@/styles/components/Navbar.module.css";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import MenuButton from "./MenuButton";
+import { isBrowser } from "@/utils/config";
 
 function RouteLink({ route }: { route: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const { currentRoute } = useHashRouter();
 
+  const [activeExists, setActiveExists] = useState(false);
+
   useMouseAnimation(ref);
   const { triggerHover, stopHover } = useMouse();
+
+  useEffect(() => {
+    console.log(isBrowser);
+
+    if (isBrowser) setActiveExists(true);
+  }, []);
 
   return (
     <Link
@@ -20,7 +29,8 @@ function RouteLink({ route }: { route: string }) {
       href={`/#${route}`}
       id={`${route}-button`}
       className={
-        currentRoute === route || (route === "about" && !currentRoute)
+        activeExists &&
+        (route === currentRoute || (!currentRoute && route === "about"))
           ? styles.current
           : ""
       }
