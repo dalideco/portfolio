@@ -1,0 +1,15 @@
+.container {
+  @apply fixed top-0 left-0 pointer-events-none;
+
+  /* transition: transform 50ms ease; */
+  mix-blend-mode: exclusion;
+}
+
+.circle {
+  @apply absolute bg-white w-4 h-4 rounded-full top-[-0.7rem] left-[-0.6rem];
+  transition: transform 300ms ease-in-out;
+}
+
+.circle.hovering {
+  transform: scale(3);
+}
