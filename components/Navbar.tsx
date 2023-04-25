@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import Logo from "./Logo";
+import { useHashRouter } from "@/contexts/HashRouter.context";
+import { useMouse } from "@/contexts/Mouse.context";
+import useMouseAnimation from "@/hooks/useMouseAnimation";
 import styles from "@/styles/components/Navbar.module.css";
 import Link from "next/link";
-import { useHashRouter } from "@/contexts/HashRouter.context";
+import { useRef } from "react";
+import Logo from "./Logo";
 import MenuButton from "./MenuButton";
-import useMouseAnimation from "@/hooks/useMouseAnimation";
-import { useMouse } from "@/contexts/Mouse.context";
 
 function RouteLink({ route }: { route: string }) {
   const ref = useRef<HTMLAnchorElement>(null);

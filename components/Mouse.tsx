@@ -1,12 +1,10 @@
+import styles from "@/styles/components/Mouse.module.css";
 import React, {
   ForwardedRef,
-  RefObject,
   useEffect,
   useImperativeHandle,
-  useRef,
-  useState,
+  useRef
 } from "react";
-import styles from "@/styles/components/Mouse.module.css";
 
 export interface MouseElement {
   triggerHover: () => void;
