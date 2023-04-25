@@ -18,7 +18,7 @@ export default function useMouseAnimation(ref: React.RefObject<HTMLElement>) {
 
       // console.log(mouseX,mouseY)
 
-      const transform = `translate(${mouseX * 0.3}%, ${mouseY * 0.3}%)`;
+      const transform = `translate(${mouseX * 0.3}%, ${mouseY * 0.7}%)`;
       current.style.transform = transform;
     };
 
