@@ -9,6 +9,7 @@ import MenuButton from "./MenuButton";
 
 function RouteLink({ route }: { route: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
+  const { currentRoute } = useHashRouter();
 
   useMouseAnimation(ref);
   const { triggerHover, stopHover } = useMouse();
@@ -18,6 +19,11 @@ function RouteLink({ route }: { route: string }) {
       ref={ref}
       href={`/#${route}`}
       id={`${route}-button`}
+      className={
+        currentRoute === route || (route === "about" && !currentRoute)
+          ? styles.current
+          : ""
+      }
       onMouseOver={triggerHover}
       onMouseOut={stopHover}
     >
