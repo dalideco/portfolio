@@ -2,12 +2,12 @@ import { useRouter } from "next/router";
 import React, { createContext, useContext, useEffect, useMemo } from "react";
 
 interface HashRouterContext {
-  route: string | null;
+  currentRoute: string | null;
   ROUTES: string[];
 }
 
 const hashRouterContext = createContext<HashRouterContext>({
-  route: null,
+  currentRoute: null,
   ROUTES: [],
 });
 
@@ -31,13 +31,13 @@ export function HashRouterProvider({
 }) {
   const { asPath } = useRouter();
 
-  const route = useMemo(() => asPath.split("#")[1] || null, [asPath]);
+  const currentRoute = useMemo(() => asPath.split("#")[1] || null, [asPath]);
 
   useEffect(() => {
-    if (!route) return;
-  }, [route]);
+    if (!currentRoute) return;
+  }, [currentRoute]);
 
-  const value = { route, ROUTES };
+  const value = { currentRoute, ROUTES };
   return (
     <hashRouterContext.Provider value={value}>
       {children}
