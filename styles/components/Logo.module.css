@@ -1,7 +1,7 @@
 .container {
   @apply bg-black text-white;
-  @apply py-[0.5rem] pl-5 pr-10;
-  @apply text-[0.95rem] font-semibold;
+  @apply text-[14px] font-semibold;
   clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
   user-select: none;
+  padding: 9px 39px 10px 21px;
 }
