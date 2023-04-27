@@ -11,6 +11,7 @@
 
 html {
   font-size: 15px;
+  overflow-x: hidden;
 }
 
 body {
@@ -23,4 +24,10 @@ body {
 
 h1 {
   @apply text-6xl font-semibold;
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 2vw;
+  }
 }
