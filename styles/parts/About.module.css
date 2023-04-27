@@ -1,4 +1,3 @@
 .title {
-    @apply mt-[20rem] text-4xl text-center;
-    transform: scale(1.5)
+  @apply mt-[40vh] text-center;
 }
