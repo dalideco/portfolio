@@ -10,7 +10,7 @@
 }
 
 .links > a {
-  @apply px-4 py-[0.2rem] relative mx-2;
+  @apply px-4 py-[0.225rem] relative mx-2;
   @apply text-gray font-medium text-[1rem];
   transition: transform 200ms ease;
   
