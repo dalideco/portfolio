@@ -1,3 +1,9 @@
 .title {
   @apply mt-[40vh] text-center;
+
+  @apply mb-20;
+}
+
+.aboutmeContainer {
+  @apply h-[70vh] bg-gray mx-8 bg-[var(--colors-lightgray)];
 }

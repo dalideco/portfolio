@@ -24,6 +24,7 @@ body {
 
 h1 {
   @apply text-6xl font-semibold;
+  line-height: 1.3em;
 }
 
 @media (max-width: 800px) {
