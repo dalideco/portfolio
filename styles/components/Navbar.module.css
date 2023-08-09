@@ -2,7 +2,15 @@
   @apply px-6 py-2;
   @apply flex items-center justify-between;
   @apply fixed top-0 left-0;
-  @apply w-full;
+  @apply w-full z-10;
+
+  /* background: rgb(245, 245, 245); */
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(245, 245, 245, 1) 60%,
+    rgba(245, 245, 245, 0) 100%
+  );
 }
 
 .links {
@@ -13,7 +21,6 @@
   @apply px-4 py-[0.225rem] relative mx-2;
   @apply text-gray font-medium text-[1rem];
   transition: transform 200ms ease;
-  
 }
 
 .links > a:hover {
@@ -32,9 +39,8 @@
     width 300ms ease-in-out;
 }
 
-
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .links {
-    display:none;
+    display: none;
   }
 }
