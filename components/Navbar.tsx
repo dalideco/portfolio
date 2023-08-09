@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import MenuButton from "./MenuButton";
 import { isBrowser } from "@/utils/config";
+import gsap from "gsap";
 
 function RouteLink({ route }: { route: string }) {
   const ref = useRef<HTMLAnchorElement>(null);
@@ -46,6 +47,7 @@ function ButtonHighlight() {
   const { currentRoute } = useHashRouter();
   const ref = useRef<HTMLDivElement>(null);
 
+  // Moves highlight to active route button
   useEffect(() => {
     const current = ref.current;
     if (!current) return;
@@ -60,11 +62,32 @@ function ButtonHighlight() {
     current.style.width = width + "px";
     current.style.transform = `translateX(${position}px)`;
   }, [currentRoute]);
+
   return <div ref={ref} className={styles.highlight}></div>;
 }
 
 export default function Navbar() {
   const { ROUTES } = useHashRouter();
+
+  useEffect(() => {
+    document.querySelectorAll("#menu a").forEach((item, index) => {
+      item.addEventListener("click", (event) => {
+        // Prevent the default action
+        event.preventDefault();
+        let target = event.target;
+        if (!target) return;
+
+        let element = document.querySelector(target.hash);
+        if (!element) return;
+        const { top } = element.getBoundingClientRect();
+
+        window.scrollTo({
+          top, 
+          behavior: "smooth"
+        })
+      });
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -73,7 +96,7 @@ export default function Navbar() {
 
       <div className="flex items-center">
         {/* navigation buttons */}
-        <div className={styles.links}>
+        <div id="menu" className={styles.links}>
           {ROUTES.map((route) => (
             <RouteLink key={route} route={route}></RouteLink>
           ))}
