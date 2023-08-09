@@ -46,7 +46,10 @@ export default function About() {
       </h1>
 
       {/* Information rectangle */}
-      <div id="about-me-container" className={styles.aboutmeContainer}></div>
+      <div id="about" className={styles.aboutmeContainer}>
+
+
+      </div>
     </div>
   );
 }

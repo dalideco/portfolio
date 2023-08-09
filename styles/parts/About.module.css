@@ -5,5 +5,5 @@
 }
 
 .aboutmeContainer {
-  @apply h-[70vh] bg-gray mx-8 bg-[var(--colors-lightgray)];
+  @apply h-[70vh] bg-gray mx-6 bg-[var(--colors-lightgray)];
 }
