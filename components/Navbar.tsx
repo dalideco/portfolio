@@ -75,16 +75,16 @@ export default function Navbar() {
         // Prevent the default action
         event.preventDefault();
         let target = event.target;
-        if (!target) return;
+        if (!(target instanceof HTMLAnchorElement)) return;
 
         let element = document.querySelector(target.hash);
         if (!element) return;
         const { top } = element.getBoundingClientRect();
 
         window.scrollTo({
-          top, 
-          behavior: "smooth"
-        })
+          top,
+          behavior: "smooth",
+        });
       });
     });
   }, []);
