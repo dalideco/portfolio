@@ -27,6 +27,14 @@ h1 {
   line-height: 1.3em;
 }
 
+h2 {
+  @apply text-3xl font-semibold;
+}
+
+h3 {
+  @apply font-semibold text-xl;
+}
+
 @media (max-width: 800px) {
   html {
     font-size: 2vw;
