@@ -56,6 +56,8 @@ export default function About() {
     return () => {
       titleAnimation.kill();
       aboutmeAnimation.kill();
+      imageAnimation.kill();
+      subtitleAnimation.kill();
     };
   }, []);
 
