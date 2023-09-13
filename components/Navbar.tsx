@@ -70,23 +70,23 @@ export default function Navbar() {
   const { ROUTES } = useHashRouter();
 
   useEffect(() => {
-    document.querySelectorAll("#menu a").forEach((item, index) => {
-      item.addEventListener("click", (event) => {
-        // Prevent the default action
-        event.preventDefault();
-        let target = event.target;
-        if (!(target instanceof HTMLAnchorElement)) return;
+    // document.querySelectorAll("#menu a").forEach((item, index) => {
+    //   item.addEventListener("click", (event) => {
+    //     // Prevent the default action
+    //     event.preventDefault();
+    //     let target = event.target;
+    //     if (!(target instanceof HTMLAnchorElement)) return;
 
-        let element = document.querySelector(target.hash);
-        if (!element) return;
-        const { top } = element.getBoundingClientRect();
+    //     let element = document.querySelector(target.hash);
+    //     if (!element) return;
+    //     const { top } = element.getBoundingClientRect();
 
-        window.scrollTo({
-          top,
-          behavior: "smooth",
-        });
-      });
-    });
+    //     window.scrollTo({
+    //       top,
+    //       behavior: "smooth",
+    //     });
+    //   });
+    // });
   }, []);
 
   return (
